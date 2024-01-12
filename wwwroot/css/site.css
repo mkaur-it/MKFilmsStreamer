@@ -1,0 +1,578 @@
+/* CSS file to format MKFilms Streamer, written by Mandeep Kaur. Some code is re-used from Movie Knights*/
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+} 
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background: #E7E8D1;
+}
+header {
+  background: #fff;
+}
+nav{
+  width: 100%;
+	height: 200px;
+  margin: 0;
+  padding: 0;
+  background: #201E20;
+	background-size: cover;
+  border-bottom: 1px groove #fff;
+}
+#logo {
+	width: 420px;
+	position: absolute;
+	z-index: 7;
+	cursor: pointer;
+  margin-left: -200px;
+  margin-top: -80px;
+  background-color: 
+}
+#searchDiv {
+	width: 100%;
+	margin-left: 5%;
+	padding-top: 0;
+  background: #201E20;
+}
+#search {
+	font-size: 1.5em;
+	width: 80%;
+	border: 2px solid #222;
+	padding: 0 7px;
+	border-top-left-radius: 32px;
+	border-bottom-left-radius: 32px;
+	padding-left: 21px;
+}
+#searchBtn {
+	width: 20%;
+	padding: 0 13px;
+	border-top-right-radius: 32px;
+	border-bottom-right-radius: 32px;
+	font-size: 1.5em;
+	margin-left: -7px;
+	background: #E7E8D1;
+	cursor: pointer;
+}
+main {
+	width: 100%;
+	height: auto;
+}
+.cards {
+  display: grid;
+  gap: 11px;
+  margin: 35px 50px 35px 20px;
+  /* genrating grids*/
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-rows: auto;
+}
+  .movieCard{
+    border-radius: 25px;
+    border: 3px solid #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #232323;
+    box-shadow: rgb(32, 30, 32) 0px 0.15rem 0.5rem, rgb(16, 24, 32) 0px 0.075rem 0.175rem;
+    width: 250px;
+    height: 530px;
+    border: 2px solid #fff;
+    margin: 15px 20px;
+    border-radius: 20px;
+    transition: all 500ms;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: self-start;
+  }
+  .movieCard:hover {
+    box-shadow: rgb(32, 80, 32) 0px 0.15rem 0.5rem, rgb(16, 24, 32) 0px 0.075rem 0.175rem;
+    transform: translateY(-3px) scale(1.1);
+  }
+    .movieCardTop {
+      width: 100%;
+      height: 350px;
+      margin: 0;
+      padding: 0;
+      border-bottom: 2px solid #fff;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+      .movieButton {
+        width: 100%;
+        height: 350px;
+        cursor: pointer;
+        opacity: 0;
+      }
+    .movieCardBottom {
+      width: 100%;
+      height: 180px;
+      margin: 0;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      background: #fff;
+    }
+      .movieCardBottom h4{
+        text-align:left;
+        font-weight: 600;
+        font-size: large;
+        /* top - right - bottom - left */
+        padding: 5px 5px 0px 10px;
+        text-transform:capitalize;
+        display:inline-block;
+        margin:0;
+      }
+      .movieCardBottom h5{
+        text-align:left;
+        font-size: small;
+        padding: 0px 10px;
+        margin:0;
+      }
+      .movieCardBottom p{
+        padding: 5px 10px;
+        text-align:justify;
+        overflow: hidden;
+        font-size:small;
+        margin:0px;
+      }
+      .movieCardBottom span{
+        text-align:left;
+        color:#101820FF;
+        font-weight: 700;
+        border: 2px solid #101820FF;
+        border-radius: 10px 100px 100px 10px;
+        padding:1px 3px;
+        margin: 30px 0px;
+        background-color: #E7E8D1;
+        display: table-cell;
+        font-size:smaller;
+      }   
+  /* Movie Page Styles */
+  #movieDetailsDiv {
+    display: grid;
+    gap: 1rem;
+    /* Explicit grid */
+    grid-template-areas:
+      'a b c'
+      'd d d'
+      'e e e';
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 22vw 27vw 50vw;
+    margin-top: -20px;
+  }
+  
+    #movieDetailsDiv .movieDetailsCol {
+      font-size: 1.5rem;
+      color: #E7E8D1;
+      width: 100%;
+      height: auto;
+      margin: 15px 20px;
+      transition: all 500ms;
+      overflow: hidden;
+      align-items: self-start;
+      padding: 5px;
+      background: transparent;    
+    }
+    #movieDetailsDiv .movieDetailsCol:nth-child(1) {
+      grid-area: a;
+      margin: 10px 10px;
+      grid-row-start: 1;
+    }
+    #movieDetailsDiv .movieDetailsCol:nth-child(2) {
+      grid-area: b;
+      grid-column-start: 2;
+      padding: 10px 20px;
+      
+    }
+    #movieDetailsDiv .movieDetailsCol:nth-child(3) {
+      grid-area: c;
+      grid-column-start: 3;
+    }
+    #movieDetailsDiv .movieDetailsCol:nth-child(4) {
+      grid-area: d;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-column: 1 / -1;
+      height: auto;
+      width: 95%;
+    }
+    #movieDetailsDiv .movieDetailsCol:nth-child(5) {
+      grid-area: e;
+      grid-row-start: 3;
+      grid-row-end: 4;
+      grid-column: 1 / -1;
+      height: auto;
+      width: 95%;
+    }
+    #movieDetailsDiv .movieDetailsCol #moviePoster {
+      margin: 20px;
+      width: 380px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      float: left;
+    }  
+    #movieDetailsDiv .movieDetailsCol h1{
+      text-align:left;
+      font-weight:bolder;
+      font-size:2.5rem;
+      /* top - right - bottom - left */
+      padding: 0px 5px 10px 0px;
+      text-transform:capitalize;
+      text-align: left;
+      margin-top:10px;
+    }
+    #movieDetailsDiv .movieDetailsCol #movieStats {
+      width: 300px;
+      height: 480px;
+      padding: 10px 25px;
+      float: left;
+    }
+      #movieDetailsDiv .movieDetailsCol #movieStats h3, p{
+        font-size: .7em;
+        text-align: justify;
+        line-height: 1.5rem;
+      }
+
+    #movieDetailsDiv .movieDetailsCol .genres {
+      margin: 0 5px;
+      font-size: .7em;
+    }
+    #movieDetailsDiv .movieDetailsCol #movieCastCol{
+      margin: 0px;
+      padding:0px 5px 5px 5px;
+      width:100%;
+      height:auto;
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
+      #movieDetailsDiv .movieDetailsCol #movieCastCol .castDiv {
+        width: 200px;
+        height: 220px;
+        margin: 20px 10px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        display: inline-block;
+      }
+      #movieDetailsDiv .movieDetailsCol #movieCastCol .castButton {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        opacity: 0;
+      }
+      #movieDetailsDiv .movieDetailsCol #movieCastCol .castLabel {
+        width: 200px;
+        height: auto;
+        padding: 2px 5px;
+        position: relative;
+        z-index: 3;
+        background: #444;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1em;
+        overflow: hidden;
+        line-height: 1.1;
+        top: 160px;
+        border-radius: 16px;
+        border: 3px solid #fff;
+      }
+  /* VIDEO STYLES */
+
+  #videoDiv {
+    width: 853px;
+    height: 525px;
+    float: left;
+    padding-top: 10px;
+  }
+  #videoSelector {
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 8px;
+    max-width: 853px;
+    width: 853px;
+    padding: 5px 7px;
+    background: #444;
+    border: 3px solid #fff;
+    color: #fff;
+  }
+  #youtubePlayer {
+    width: 853px;
+    height: 505px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    position: relative;
+    z-index: 3;
+    margin-top: 10px;
+  }     
+
+  /* Actor Page Styles  */
+
+  #actorGrid {
+    margin: 35px 50px 35px 20px;
+    width: 99vw;
+    height:fit-content;
+    margin-top: -20px;
+    margin-left: -10px;
+    display: grid;
+    gap: 1rem;
+  
+    /* Explicit grid */
+    grid-template-areas:
+      'a b'
+      'a c'
+      'a d'
+      'a e';
+  
+    grid-template-rows: auto;
+    grid-template-columns: 20vw 75vw;
+  
+    --stagger-delay: 100ms;
+    z-index: 5;
+  }
+  
+  @keyframes cardEntrance {
+    from {
+      opacity: 0;
+      transform: scale(0.4);
+      filter: hue-rotate(180deg);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      filter: hue-rotate(0deg);
+    }
+  }
+  
+    #actorGrid .actorBlocks{
+      animation: cardEntrance 700ms ease-out;
+      animation-fill-mode: backwards;  
+    }
+    
+    #actorGrid .actorBlocks:nth-child(1) {
+      grid-area: a;
+      margin: 10px 10px;
+      grid-row-start: 1;
+      grid-row-end: 12;
+      animation-delay: calc(1 * var(--stagger-delay));
+    
+    }
+    #actorGrid .actorBlocks:nth-child(2) {
+      grid-area: b;
+      grid-column-start: 2;
+      animation-delay: calc(2 * var(--stagger-delay));
+    }
+    #actorGrid .actorBlocks:nth-child(3) {
+      grid-area: c;
+      grid-column-start: 2;
+      animation-delay: calc(3 * var(--stagger-delay));
+    }
+    #actorGrid .actorBlocks:nth-child(4) {
+      grid-area: d;
+      grid-column-start: 2;
+      animation-delay: calc(4 * var(--stagger-delay));
+    }
+    #actorGrid .actorBlocks:nth-child(5) {
+      grid-area: e;
+      display: grid;
+      grid-column-start: 2;
+      animation-delay: calc(5 * var(--stagger-delay));
+    }
+    #actorGrid .actorBlocks #actorMainPic {
+      margin: 5px 25px;
+      width: 300px;
+      height: 450px;
+      background: white;
+      border-radius: 2% 2% 2% 2% / 2% 2% 2% 2% ;
+      color: white;
+      box-shadow: 15px 15px rgba(0,0,0,.15);
+      transition: all .4s ease;
+      border: 1px solid #101820FF;
+    }
+      #actorGrid .actorBlocks #actorMainPic:hover {
+        border-radius: 2% 2% 50% 50% / 2% 2% 5% 5% ;
+        box-shadow: 7px 7px rgba(0,0,0,.25);
+      } 
+    #actorGrid .actorBlocks #actorProfile {
+      margin: 30px 25px;
+    }
+      #actorGrid .actorBlocks #actorProfile h3{
+        text-align:left;
+        font-weight: 700;
+        font-size: 20px;
+        /* top - right - bottom - left */
+        padding: 15px 5px 5px 20px;
+        text-transform:capitalize;
+        display:inline-block;
+        margin:0;
+      }
+      #actorGrid .actorBlocks .social-icons {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+        margin-left: 15px;
+      }
+  
+        #actorGrid .actorBlocks .social-icons a {
+          display: inline-block;
+        }
+        #actorGrid .actorBlocks .social-icons a img{
+          width: 30px;
+          height: 30px;
+          background-color: transparent;
+          border-radius: 50%;
+          margin-right: 10px;
+          text-align: center;
+        }
+        #actorGrid .actorBlocks .social-icons a img:hover{
+          border-radius: 50%;
+          transform: scale(1.15);
+          border-color:#B85042;
+        }
+        #actorGrid .actorBlocks .social-icons a:last-child {
+          margin-right: 0;
+        }
+    #actorGrid .actorBlocks #actorProfile h4{
+      text-align:left;
+      font-weight: 700;
+      font-size: 16px;
+      /* top - right - bottom - left */
+      padding: 15px 5px 0px 20px;
+      text-transform:capitalize;
+      display:inline-block;
+      margin:0;
+    }
+    #actorGrid .actorBlocks h3{
+      display: block;
+      text-align:left;
+      font-weight: 700;
+      font-size: 16px;
+      /* top - right - bottom - left */
+      padding: 15px 5px 5px 20px;
+      margin:0;
+    }
+    #actorGrid .actorBlocks p {
+      padding: 0px 5px 10px 20px;
+      text-align:justify;
+      font-size:medium;
+      margin:0px;
+    }
+    #actorGrid .actorBlocks ul,li {
+      margin:0px;
+      padding: 0px 10px;
+      text-align:left;
+      font-size:medium;
+      list-style-type: none;
+    }
+    #actorGrid .actorBlocks #actorBio {
+      margin: 0;
+    }
+      #actorGrid .actorBlocks #actorBio h1{
+        text-align:left;
+        font-weight:bolder;
+        font-size:40px;
+        /* top - right - bottom - left */
+        padding: 15px 5px 5px 10px;
+        text-transform:capitalize;
+        margin:0;
+      }
+      #actorGrid .actorBlocks #actorBio h3{
+        text-align:left;
+        font-weight: 700;
+        font-size: 16px;
+        /* top - right - bottom - left */
+        padding: 15px 5px 5px 20px;
+        text-transform:capitalize;
+        margin:0;
+      }
+      #actorGrid .actorBlocks #actorBio p {
+        padding: 0px 35px;
+        text-align:justify;
+        font-size:medium;
+        margin:0px;
+      }
+      /* Actor Image Gallery Styles */
+      #actorGrid .actorBlocks .actorImgGallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: left;
+        gap: 20px;
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        margin: 5px 5px 5px 20px;
+        padding: 10px 10px 10px 10px;
+      }
+      #actorGrid .actorBlocks .actorImgGalleryItem {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+        #actorGrid .actorBlocks .actorImgGalleryItem img {
+          display:inline-flexbox;
+          background-color: var(--img-color);
+          width: 100%;
+          height: 100%;
+          object-fit:cover;
+          transition: transform 0.4s ease-in-out;
+          border: 2px solid  #B85042;
+          border-radius: 25%;
+        }
+          #actorGrid .actorBlocks .actorImgGalleryItem img hover:before {
+            opacity: 1;
+          }
+        #actorGrid .actorBlocks .actorImgGalleryItem:hover {
+          transform: translateY(-5px) scale(2);
+          border: 2px solid  #B85042;
+          border-radius: 25%;
+        }
+          #actorGrid .actorBlocks .actorImgGalleryItem img:hover {
+            transform: scale(1.25);
+            border: 2px solid  #B85042;
+            border-radius: 25%;
+          }
+  
+footer {
+  z-index: 15;
+  width: 100%;
+  height: 150px;
+  font-size: 1.1em;
+  font-weight: 400;
+  clear: both;
+  padding: 25px 50px;
+  background-color: #201E20;
+  border-top: 1px groove #fff;
+  text-align: right;
+  color: #fff;
+  text-decoration:none;
+}
+footer h5, a{
+  text-align: left;
+  text-decoration: none;
+  color: #E7E8D1;
+  font-size: 1.2em;
+}
+footer p, a{
+  text-align: right;
+  text-decoration: none;
+  color: #E7E8D1;
+  font-size: 1.2em;
+}
+#tmdbLogo {
+  width: 420px;
+  margin-left: 25px;
+  float: right;
+}
+/*End of site.css*/

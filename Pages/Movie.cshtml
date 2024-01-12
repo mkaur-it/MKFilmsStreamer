@@ -1,0 +1,104 @@
+@page
+@model MovieModel
+
+<div id="movieDetailsDiv" style="background: radial-gradient(rgba(15, 14, 22, 0.67), #100e17), url(@Model.backdrop_path); background-size: cover; background-position: center;">
+    <div class="movieDetailsCol">
+        <img id="moviePoster" src="@Model.poster_path" alt="@Model.title" title="@Model.title">
+    </div>
+    <div class="movieDetailsCol">
+       <h1>@Model.title</h1>
+            <div id="stats">
+                <h3>Released: @Model.yearReleased</h3>
+                <h3>Revenue: @Model.revenue</h3>
+                <h3>Tagline: @Model.tagline</h3>
+                <h3>Genres:
+                    @for(int i = 0; i < Model.genres.Count; i++) {
+                        if(i < Model.genres.Count - 1) {
+                            <span class="genres">@Model.genres[i], </span>
+                        }
+                        else {
+                            <span class="genres">@Model.genres[i].</span>
+                        }   
+                    }
+            
+            <p>Synopsis:  @Model.overview</p>
+            </div>
+    </div>
+    <div class="movieDetailsCol">
+        <div id="videoDiv">
+            @if(Model.videoNames.Count >= 1) {
+                <select id="videoSelector" name="videoKey" 
+                    onchange="switchVideo(this.value)"
+                    title="Select a video to watch">
+                    @for(int i = 0; i < Model.videoKeys.Count; i++) {
+                        <option value="@Model.videoKeys[i]">
+                            @Model.videoNames[i]
+                        </option>
+                    }
+                </select>
+                <iframe id="youtubePlayer" title="youtubePlayer"
+                    src="https://www.youtube.com/embed/@Model.videoKeys[0]?rel=0&controls=1"
+                    frameborder="0" allowfullscreen autoplay="false">
+                </iframe>
+            }
+        </div>
+    </div>        
+    <div class="movieDetailsCol">
+        <h1>Movie Cast</h1>
+        <div id="movieCastCol">
+            @if(Model.castIMGs.Count > 0){
+                @for(int i = 0; i < Model.castIMGs.Count; i++) {
+                <div class="castDiv" style="background: url(@Model.castIMGs[i]); background-size: cover; background-position: center;" title="@Model.castNames[i]">
+                    <form method="POST" asp-page-handler="GetActor">
+                        <div class="castLabel" title="@Model.castNames[i]">
+                            @Model.castNames[i]
+                        </div>
+                        <input class="castButton" type="submit" name="actorID" value="@Model.castIDs[i]">
+                    </form>
+                </div>
+            }  
+            }else{
+                <p> No Cast Information Available</p>
+            }
+            
+        </div> 
+    </div>
+    <div class="movieDetailsCol">
+        <h1>Similar Movies</h1>
+        <div class="cards">
+                @if(Model.movieTitles.Count > 0){
+                     @for(int i = 0; i < Model.movieTitles.Count; i++){
+                        <form method="POST" asp-page-handler="Details">
+                            <div class="movieCard">
+                                <div class="movieCardTop" style="background: url(@Model.posterURLs[i]); background-size: cover; background-position: center; margin-top:0;">
+                                        <input class="movieButton" type="submit" name="movieID" value="@Model.movieIDs[i]">
+                                </div>
+                                <div class="movieCardBottom">
+                                    <h4>@Model.movieTitles[i]</h4>
+                                    <h5>@Model.releaseDate[i]</h5>
+                                    <p>
+                                    @for(int j = 0; j < Model.genreSet[i].Count; j++){
+                                        <span>@Model.genreSet[i][j] 
+                                            @(" ")</span>
+                                    }
+                                    </p>
+                                    @if(Model.overviews[i] != ""){
+                                        <p>@Model.overviews[i]</p>
+                                    }else{
+                                        <p>No Overview Available</p>
+                                    }
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    } <!-- for loop -->
+                }
+                else{
+                     <p> No Similar Movies returned in search result</p>   
+                }
+               
+            </div> 
+    </div>
+        
+</div>
+

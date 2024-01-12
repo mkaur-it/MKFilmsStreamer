@@ -1,0 +1,103 @@
+@page
+@model ActorModel
+
+<div id="actorGrid">
+    <div class="actorBlocks">
+        <div id="actorMainPic" style="background: url(@Model.actorProfilePath); background-size: cover; background-position: center; " title="@Model.actorName">
+        </div>
+        <div id="actorProfile">
+            @if(((Model.actorFacebookId != null) && (Model.actorFacebookId != ""))  || ((Model.actorTwitterId != null) && (@Model.actorTwitterId != "")) || ((Model.actorInstaId != null) && (Model.actorInstaId != "")) || ((Model.actorHomepage != null) && (Model.actorHomepage != ""))){
+                <div class="social-icons">
+                     @if((Model.actorFacebookId != null) && (Model.actorFacebookId != "")){
+                        <a href = "@Model.actorFacebookId"><img src="./assets/images/facebook-icon.png"  title="@Model.actorName Facebook" alt="Facebook"></a>
+                     } 
+                    @if((Model.actorTwitterId != null) && (@Model.actorTwitterId != "")){ 
+                        <a href = " @Model.actorTwitterId"><img src="./assets/images/twitter-icon.png" title="@Model.actorName Twitter" alt="Twitter"></a>
+                    }
+                    @if((Model.actorInstaId != null) && (Model.actorInstaId != "")){
+                        <a href = "@Model.actorInstaId"><img src="./assets/images/instagram-icon.png" title="@Model.actorName Instagram" alt="Instagram"></a>
+                    }
+                    @if((Model.actorHomepage != null) && (Model.actorHomepage != "")){
+                        <a href = "@Model.actorHomepage"><img src="./assets/images/homepage-icon.png" title="@Model.actorName Homepage" alt="Homepage"></a>
+                    }
+                </div>
+            }          
+            <h3>Personal Info</h3><br>
+            <h4>Known For</h4>
+            <p>@Model.actorKnownFor</p> 
+            <h4>Gender</h4>
+            <p>@Model.actorGender</p>
+            <h4>Birthdate</h4>
+            <p>@Model.actorBirthday</p> 
+            <h4>Place of Birth</h4>
+            <p>@Model.actorBirthPlace</p>
+            @if(Model.actorDeathday != null){
+                <h4>Deathdate</h4>
+                <p>@Model.actorDeathday</p> 
+            }
+            @if(Model.actorKnownAs != null){
+                <h4>Also Known As</h4> 
+                    <ul> 
+                        @for(int i = 0; i < Model.actorKnownAs.Count; i++){
+                            <li>@Model.actorKnownAs[i]</li>
+                        }   
+                    </ul>
+            }   
+        </div> 
+    </div>
+    
+    <div class="actorBlocks">
+        <div id="actorBio">
+            <h1>@Model.actorName</h1>
+            <h3>Biography</h3>
+            <p>@Model.actorBiography</p>
+        </div>
+    </div>
+     
+     <div class="actorBlocks">
+        <h3>@Model.actorName's Image Gallery</h3>
+        @if((Model.actorIMGs.Count > 1)){ 
+            <div class="actorImgGallery">
+                @for(int i = 1; i < Model.actorIMGs.Count; i++){
+                    <div class="actorImgGalleryItem">
+                        <img src="@Model.actorIMGs[i]" alt="@Model.actorName images" alt="@Model.actorName ">
+                    </div>
+                }
+            </div>
+        }
+        else{
+            <div class="actorImgGalleryItem">
+                @for(int i = 0; i < Model.actorIMGs.Count; i++){
+                    <div class="actorImgGalleryItem">
+                        <img src="@Model.actorIMGs[i]" alt="@Model.actorName images" alt="@Model.actorName ">
+                    </div>
+                }
+            </div>
+            <p>No Images Available </p>
+        }   
+    </div>
+    <div class="actorBlocks">
+        <h3>@Model.actorName's Best Known For</h3>
+            <div class="cards">
+            @for(int i = 0; i < Model.movieTitles.Count; i++){
+            <form method="POST" asp-page-handler="Details">
+                <div class="movieCard">
+                    <div class="movieCardTop" style="background: url(@Model.posterURLs[i]); background-size: cover; background-position: center; margin-top:0;">
+                            <input class="movieButton" type="submit" name="movieID" value="@Model.movieIDs[i]">
+                    </div>
+                    <div class="movieCardBottom">
+                        <h4>@Model.movieTitles[i]</h4>
+                        <p>
+                        @for(int j = 0; j < Model.genreSet[i].Count; j++){
+                            <span>@Model.genreSet[i][j] 
+                                @(" ")</span>
+                        }
+                        </p>
+                        <p>@Model.overviews[i]</p>
+                    </div>
+                </div>
+            </form>
+            }
+        </div> 
+    </div>
+</div>

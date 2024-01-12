@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MKFilmsStreamer", "MKFilmsStreamer.csproj", "{256A9AFF-F5BE-4BC9-9798-6B7F13A2F6CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoviesAPI", "..\MoviesAPI\MoviesAPI.csproj", "{E65C0968-3641-4121-B82D-441855479221}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{256A9AFF-F5BE-4BC9-9798-6B7F13A2F6CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256A9AFF-F5BE-4BC9-9798-6B7F13A2F6CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256A9AFF-F5BE-4BC9-9798-6B7F13A2F6CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256A9AFF-F5BE-4BC9-9798-6B7F13A2F6CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E65C0968-3641-4121-B82D-441855479221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E65C0968-3641-4121-B82D-441855479221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E65C0968-3641-4121-B82D-441855479221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E65C0968-3641-4121-B82D-441855479221}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B3F1787-DEA7-45BC-B953-CD0A71BE845E}
+	EndGlobalSection
+EndGlobal
